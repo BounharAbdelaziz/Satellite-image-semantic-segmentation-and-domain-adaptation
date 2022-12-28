@@ -1,67 +1,17 @@
-﻿#####################################
- FLAIR-one baseline : starting-kit 
-#####################################
+﻿# Introduction
 
+This work is done in the context of the [FLAIR](https://codalab.lisn.upsaclay.fr/competitions/8769 ) challenge which consist on building an efficient neural network capable of doing semantic segmentation of satellite imagery. By efficient we mean that we seek for an architecture that is resilient to domain shift, i.e. change of the camera lens, the period of the year, etc.
 
-The starting-kit contains :
+<img src="./for_readme/example.png" width="40%" height="40%" style="text-align: center"/>
 
+# Dataset 
 
-|_ toy_dataset_flair-one (folder): 
-		sample of the full dataset with same structure and naming convention.
+The FLAIR-one dataset consists of 77,412 high resolution (0.2 m spatial resolution) patches with 13 semantic classes (19 original classes remapped to 13, see the associated [paper](https://arxiv.org/pdf/2211.12979.pdf) for more details). The dataset covers a total of approximatly 800 km², with patches that have been sampled accross the entire metropolitan French territory to be illustrating the different climate and landscapes (spatial domains). The aerial images included in the dataset were acquired during different months and years (temporal domains).
 
-|_ metadata (folder): 
-		contains a .json file with the metadata associated to provided patches.
+<img src="./for_readme/FR_ortho_and_dataset.png" width="40%" height="40%" style="text-align: center"/>
 
-|_ py_module (folder): 
-		contains .py files defining the modules used in the notebook.
+# Suggested papers to read
 
-|_ flair-one-baseline.ipynb (notebook): 
-		a notebook allowing to launch the py_module, explore the data and train the baseline.
+# Trained architectures
 
-
-
-
-
--------------------------------
-!!  flair-one-baseline.ipynb !!  : You can use this notebook in two different ways. Carefully read the following: 
--------------------------------
-
-
-## option 1 : locally
-
-This option is more practical as the data is relatively volumineous. 
-To do so, you just need to download the whole content of the starting-kit to your local machine and launch the notebook with a devoted software (jupyter notebook, jupyter lab, visual studio, ...) from within the starting-kit folder.
-
-::  best practice is to create a new environment, e.g., with conda create -n flair-one-baseline python=3.9
-::  the following libraries are needed (versions indicated ensure a working environment): 
-
-	python==3.9.0
-	matplotlib==3.5.2
-	scikit-image==0.19.3
-	pillow==9.2.0
-	torch==1.12.1
-	torchmetrics==0.10.0
-	pytorch_lightning==1.7.7
-	segmentation_models_pytorch==0.3.0
-	albumentations==1.2.1
-	rasterio==1.2.10
-	tensorboard==2.10.1
-
-
-
-## option 2 : Google Colab
-
-If you choose to use the notebook from the starting-kit in Google Colab, some steps are needed:
-
-:: create a link of the flair-one-starting-kit shared directory to your drive (right click and "create link in Drive").
-Alternatively, you can download and upload the whole content of the starting-kit into your drive.
-
-:: open the flair-one-baseline.ipynb notebook in Colab
-:: if you are using a link to the shared notebook it has read only rights: select File --> Save a copy in Drive (will make a copy in your drive allowing read and write)
-:: select Runtime --> Change runtime type and select GPU
-:: uncomment the first notebook cell and run it (check for the path if you are using a copy of the content). 
-This will mount your drive to the local Colab VM and allow accessing the dataset files. 
-The cell will also install missing libraries on the VM needed to run the baseline code.  
-
-
-
+A table summarizing the mean Intersection over Union (mIoU) scores of each experiment
